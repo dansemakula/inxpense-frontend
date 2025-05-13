@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,21 +6,19 @@ import { Input } from "@/components/ui/input";
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function AuthForm() {
-  import { useEffect } from 'react';
-
-const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true);
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-    useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) navigate('/dashboard');
+    if (token) window.location.href = "/dashboard";
   }, []);
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -32,7 +30,6 @@ const handleChange = (e) => {
       return;
     }
 
-    // Updated endpoint to include "/api"
     const endpoint = isLogin ? "/api/login" : "/api/signup";
     const body = isLogin
       ? { email: form.email, password: form.password }
