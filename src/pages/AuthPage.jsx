@@ -14,6 +14,7 @@ export default function AuthForm() {
   });
 
   useEffect(() => {
+  const token = localStorage.getItem("token");
     const token = localStorage.getItem('token');
     if (token) window.location.href = "/dashboard";
   }, []);
