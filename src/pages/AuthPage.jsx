@@ -14,7 +14,6 @@ export default function AuthForm() {
   });
 
   useEffect(() => {
-  const token = localStorage.getItem("token");
     const token = localStorage.getItem('token');
     if (token) window.location.href = "/dashboard";
   }, []);
@@ -59,8 +58,8 @@ export default function AuthForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-cente<div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">r bg-gray-100">
-      <Card className="w-full max-w-md shadow-xl">
+	    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">      
+	    <Card className="w-full max-w-md shadow-xl">
         <CardContent className="space-y-4 p-6">
           <h2 className="text-2xl font-semibold text-center">
             {isLogin ? "Login" : "Sign Up"}
