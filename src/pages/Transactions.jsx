@@ -13,7 +13,7 @@ export default function Transactions() {
 
   const fetchTransactions = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${BASE_URL}/transactions`, {
+    const res = await fetch(`${BASE_URL}/api/transactions`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -32,7 +32,7 @@ export default function Transactions() {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    const res = await fetch(`${BASE_URL}/transactions`, {
+    const res = await fetch(`${BASE_URL}/api/transactions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export default function Transactions() {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${BASE_URL}/transactions/${id}`, {
+    const res = await fetch(`${BASE_URL}/api/transactions/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });

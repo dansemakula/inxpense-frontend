@@ -11,7 +11,7 @@ export default function Dashboard() {
     const fetchSummary = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch(`${BASE_URL}/reports/summary`, {
+        const res = await fetch(`${BASE_URL}/api/reports/summary`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

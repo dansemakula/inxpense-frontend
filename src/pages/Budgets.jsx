@@ -17,7 +17,7 @@ export default function Budgets() {
 
   const fetchBudgets = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${BASE_URL}/budgets`, {
+    const res = await fetch(`${BASE_URL}/api/budgets`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -30,8 +30,8 @@ export default function Budgets() {
     const token = localStorage.getItem("token");
     const method = form.id ? "PUT" : "POST";
     const url = form.id
-      ? `${BASE_URL}/budgets/${form.id}`
-      : `${BASE_URL}/budgets`;
+      ? `${BASE_URL}/api/budgets/${form.id}`
+      : `${BASE_URL}/api/budgets`;
 
     const res = await fetch(url, {
       method,
@@ -68,7 +68,7 @@ export default function Budgets() {
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this budget?")) return;
     const token = localStorage.getItem("token");
-    const res = await fetch(`${BASE_URL}/budgets/${id}`, {
+    const res = await fetch(`${BASE_URL}/api/budgets/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });

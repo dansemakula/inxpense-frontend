@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+console.log(BASE_URL); // Add this temporarily
 
 export default function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);

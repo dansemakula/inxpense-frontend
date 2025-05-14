@@ -12,7 +12,7 @@ export default function Categories() {
 
   const fetchCategories = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${BASE_URL}/categories`, {
+    const res = await fetch(`${BASE_URL}/api/categories`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -22,7 +22,7 @@ export default function Categories() {
 
   const handleCreate = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${BASE_URL}/categories`, {
+    const res = await fetch(`${BASE_URL}/api/categories`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function Categories() {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${BASE_URL}/categories/${id}`, {
+    const res = await fetch(`${BASE_URL}/api/categories/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
